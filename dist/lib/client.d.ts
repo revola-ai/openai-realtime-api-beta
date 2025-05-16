@@ -202,11 +202,14 @@ export class RealtimeClient extends RealtimeEventHandler {
         threshold: number;
         prefix_padding_ms: number;
         silence_duration_ms: number;
-
+        create_response: boolean;
+        interrupt_response: boolean;
     };
     defaultSemanticVadConfig: {
-        type: 'semantic_vad';
-        eagerness: 'high';
+        type: string;
+        eagerness: string;
+        create_response: boolean;
+        interrupt_response: boolean;
     };
     realtime: RealtimeAPI;
     conversation: RealtimeConversation;
@@ -362,7 +365,7 @@ export type TurnDetectionType =
       type: "semantic_vad";
       create_response: true; // only in conversation mode
       interrupt_response: true; // only in conversation mode
-      eagerness: "low" | "medium" | "high" | "auto"; // Corrected line
+      eagerness: "low" | "medium" | "high" | "auto";
     };
 
 /**
